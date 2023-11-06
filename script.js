@@ -6,33 +6,32 @@ function calcularImpactoAmbiental() {
     var resultadoDiv = document.getElementById("resultado");
     resultadoDiv.innerHTML = "";
 
-    var cantidadProductos = parseFloat(document.getElementById("cantidad-productos").value);
-    var distanciaEnvioKm = parseFloat(document.getElementById("distancia-envio").value);
-    var empaquesPlasticos = parseFloat(document.getElementById("empaques-plasticos").value);
-    var empaquesCarton = parseFloat(document.getElementById("empaques-carton").value);
+    var inputs = [
+        { id: "cantidad-productos", factor: 1 },
+        { id: "distancia-envio", factor: 1 },
+        { id: "empaques-plasticos", factor: 2 },
+        { id: "empaques-carton", factor: 1.5 }
+    ];
 
-    if (
-        !isNaN(cantidadProductos) && cantidadProductos > 0 &&
-        !isNaN(distanciaEnvioKm) && distanciaEnvioKm > 0 &&
-        (!isNaN(empaquesPlasticos) || isNaN(empaquesPlasticos)) && empaquesPlasticos >= 0 &&
-        (!isNaN(empaquesCarton) || isNaN(empaquesCarton)) && empaquesCarton >= 0
-    ) {
-        var impactoBasico = calcularImpactoBasico(cantidadProductos, distanciaEnvioKm, empaquesPlasticos, empaquesCarton);
-        resultadoDiv.innerHTML += `El impacto ambiental de su compra en línea es de ${impactoBasico.toFixed(2)} unidades.`;
+    var valores = inputs.map(function(input) {
+        var valor = parseFloat(document.getElementById(input.id).value);
+        return !isNaN(valor) && valor >= 0 ? valor : 0;
+    });
 
-        var mensajeRecomendacion = evaluarImpacto(impactoBasico);
-        resultadoDiv.innerHTML += `<br>${mensajeRecomendacion}`;
+    var impactoBasico = calcularImpactoBasico(valores);
+    resultadoDiv.innerHTML += `El impacto ambiental de su compra en línea es de ${impactoBasico.toFixed(2)} unidades.`;
 
-        guardarDatosEnLocalStorage({ cantidadProductos, distanciaEnvioKm, empaquesPlasticos, empaquesCarton, impactoBasico });
+    var mensajeRecomendacion = evaluarImpacto(impactoBasico);
+    resultadoDiv.innerHTML += `<br>${mensajeRecomendacion}`;
 
-        calcularImpactoEspecificoDeProductos();
-    } else {
-        resultadoDiv.innerHTML = "Por favor, ingrese valores numéricos válidos en todos los campos.";
-    }
+    guardarDatosEnLocalStorage(valores.concat(impactoBasico));
+    calcularImpactoEspecificoDeProductos();
 }
 
-function calcularImpactoBasico(cantidadProductos, distanciaEnvioKm, empaquesPlasticos, empaquesCarton) {
-    return cantidadProductos + distanciaEnvioKm + empaquesPlasticos * 2 + empaquesCarton * 1.5;
+function calcularImpactoBasico(valores) {
+    return valores.reduce(function(accumulated, current) {
+        return accumulated + current;
+    }, 0);
 }
 
 function evaluarImpacto(impactoBasico) {
@@ -44,7 +43,15 @@ function evaluarImpacto(impactoBasico) {
     return mensajeRecomendacion;
 }
 
-function guardarDatosEnLocalStorage(compraData) {
+function guardarDatosEnLocalStorage(valores) {
+    var compraData = {
+        cantidadProductos: valores[0],
+        distanciaEnvioKm: valores[1],
+        empaquesPlasticos: valores[2],
+        empaquesCarton: valores[3],
+        impactoBasico: valores[4]
+    };
+
     var compraDataJSON = JSON.stringify(compraData);
     localStorage.setItem("compraData", compraDataJSON);
 }
@@ -71,5 +78,6 @@ function calcularImpactoEspecificoDeProductos() {
         resultadoDiv.innerHTML += `<br>El impacto ambiental total de los productos específicos es de ${impactoProductoTotal.toFixed(2)} unidades.`;
     }
 }
+
 // Llama a la función de cálculo específico de productos
 calcularImpactoEspecificoDeProductos();
