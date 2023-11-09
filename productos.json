@@ -5,7 +5,7 @@
         "precio": 37000,
         "stock": 2000,
         "img": "https://images.unsplash.com/photo-1562980612-6e8c1b895189?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "favorito": "true"
+        "favorito": ""
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "precio": 80000,
         "stock": 5000,
         "img" : "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "favorito": "false"
+        "favorito": ""
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "precio": 170000,
         "stock": 5000,
         "img" : "https://plus.unsplash.com/premium_photo-1686360865919-6c587abf2544?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "favorito": "true"
+        "favorito": ""
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "precio": 60000,
         "stock": 10000,
         "img" : "https://images.unsplash.com/photo-1565897815687-8ceebbef4e8c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "favorito": "false"
+        "favorito": ""
     },
     {
         "id": 5,
@@ -37,6 +37,6 @@
         "precio": 147000,
         "stock": 15000,
         "img": "https://images.unsplash.com/photo-1515962187632-cc5c908fd2ca?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "favorito": "true"
+        "favorito": ""
     }
 ]
