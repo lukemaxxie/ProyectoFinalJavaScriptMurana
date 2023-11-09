@@ -121,7 +121,32 @@ function verificarStock(idProd){
         addItemCarrito(producto)
     }
 }
-
+document.addEventListener('DOMContentLoaded', function () {
+    const productsContainer = document.getElementById('products-container');
+  
+    fetch('productos.json')
+      .then(response => response.json())
+      .then(products => {
+        products.forEach(product => {
+          // Crear un elemento de producto
+          const productElement = document.createElement('div');
+          productElement.classList.add('list-group-item');
+          
+          // Agregar contenido del producto
+          productElement.innerHTML = `
+            <h3>${product.nombre}</h3>
+            <p>Precio: $${product.precio}</p>
+            <p>Stock: ${product.stock}</p>
+            <img src="${product.img}" alt="${product.nombre}">
+          `;
+  
+          // Agregar el elemento de producto al contenedor
+          productsContainer.appendChild(productElement);
+        });
+      })
+      .catch(error => console.error('Error cargando productos:', error));
+  });
+  
 function addItemCarrito(newProduct){
     newProduct.stock -= 1;
     let productoIndex = findProductIndex(carrito, newProduct.id); 
