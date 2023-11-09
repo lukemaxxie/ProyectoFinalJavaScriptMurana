@@ -92,34 +92,23 @@ const elemento = document.getElementById("contenedorCarrito");
 $( elemento ).html("");
 }
 
-// Añadir event listener para la tecla "Delete"
 document.addEventListener("keydown", function(event) {
     if (event.key === "delete") {
-        // Llama a la función para eliminar el elemento del carrito
         eliminarDelCarrito();
     }
 });
 
-// Función para eliminar del carrito
 function eliminarDelCarrito() {
-    // Obtén el identificador único del elemento a eliminar (puedes adaptar esto según tu estructura)
     const idElementoAEliminar = obtenerIdElementoAEliminar();
 
-    // Encuentra la posición del elemento en el carrito
     const indiceElemento = carrito.findIndex(elemento => elemento.id === idElementoAEliminar);
-
-    // Si se encuentra, elimina el elemento del carrito
     if (indiceElemento !== -1) {
         carrito.splice(indiceElemento, 1);
-
-        // Actualiza la visualización del carrito
         showCart();
     }
 }
 
-// Ejemplo de cómo obtener el identificador único del elemento a eliminar
 function obtenerIdElementoAEliminar() {
-    // Puedes adaptar esto según tu estructura, aquí se asume que hay un elemento seleccionado en el carrito
     const elementoSeleccionado = document.querySelector(".elemento-seleccionado");
     return elementoSeleccionado ? elementoSeleccionado.dataset.id : null;
 }
