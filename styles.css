@@ -1,0 +1,192 @@
+/* --- TIPOGRAFIAS --- */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+/* --- GENERAL --- */
+
+body {
+    width: 100vw;
+}
+section {
+    min-height: 90vh;
+}
+
+.ocultar {
+    display: none;
+}
+.mostrar {
+    display: block;
+}
+
+.principalTitle {
+    font-family: 'Satisfy', cursive;
+    font-size: 70px;
+    color: white;
+    background-color: #608679;
+    text-align: center; /* Center the text horizontally */
+    display: flex; /* Center the text vertically */
+    align-items: center; /* Center vertically */
+    padding: 100px 20px 100px 30px;
+}
+
+
+.home-img {
+    width: 100%;
+    filter: opacity(0.75);
+}
+
+.container,
+.row {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 1400px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        max-width: 80vw
+        ;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl {
+        max-width: 80wv;
+    }
+}
+
+/* --- MENU --- */
+
+nav {
+    z-index: 99;
+}
+
+.nav-link {
+    color: #5a9e60;
+}
+
+.nav-link:hover {
+    color: rgb(221, 127, 127);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #ffffff;
+    background-color: #03583b;
+}
+
+@media screen and (min-width: 992px) {
+    .navbar-expand-lg .navbar-collapse {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+        flex-wrap: nowrap;
+    }
+}
+
+/* --- FOOTER --- */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    background-color:#03583b;
+}
+
+/* --- SERVICIOS --- */
+
+.list-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.list-group-space {
+    border-radius: 0.25rem;
+    justify-content: space-between;
+}
+
+.list-group-center {
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-primary,
+.btn-primary:active {
+    color: #ffffff;
+    background-color: #5e884b;
+    border-color: #608679;
+}
+.btn,
+.btn:hover,
+.btn:active,
+.btn-primary:active {
+    transition: none;
+}
+.btn:hover,
+.btn:active {
+    color: black;
+    background-color: #008b72;
+    border-color: #000000;
+}
+
+/* --- PRODUCTOS --- */
+
+svg.bi.bi-trash {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btn-favorito {
+    width: 50px;
+    display:inline-table;
+    position:relative;
+    top: 0;
+    right: 0;
+}
+
+.btn-stock,
+.btn-stock:hover,
+.btn-stock:active {
+    color: black;
+    background-color: #ffffff;
+    border-color: #cecece;
+}
+
+.card-img-top {
+    width: 286px; /* Ancho deseado */
+    height: 286px; /* Altura deseada */
+    object-fit: cover; /* Para mantener la proporción de la imagen y cubrir el espacio */
+}
+.products-page .card-img-top {
+    width: 286px;
+    height: 286px;
+    object-fit: cover;
+}
